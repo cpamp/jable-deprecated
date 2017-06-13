@@ -3,9 +3,9 @@ import { logDeprecated } from "./logDeprecated";
 export function DeprecatedMethod() {
     return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
         var oldFunc = target[propertyKey];
-        descriptor.value = function(...args: any[]) {
+        descriptor.value = function() {
             logDeprecated(target.constructor.name + '.' + propertyKey);
-            return oldFunc.apply(this, args);
+            return oldFunc.apply(this, arguments);
         }
     };
 }

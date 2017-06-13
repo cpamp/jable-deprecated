@@ -6,10 +6,10 @@ import { DeprecatedMethod } from "../DeprecatedMethod";
 @DeprecatedClass()
 export class Deprecated {
     @DeprecatedMethod()
-    public test() {
-
+    public test(value: string) {
+        console.log(value);
     }
 }
 
 var t = new Deprecated();
-t.test();
+t.test("hi");
